@@ -1,49 +1,76 @@
 
 <script setup lang="ts">
- //use vue-use to toggle menu-toggle
+//use vue-use to toggle menu-toggle
 import { useToggle } from '@vueuse/core'
 
-const [isMenuOpen, toggleMenu] = useToggle()
+const [isMenuOpen = false, toggleMenu] = useToggle()
 
 </script>
 <template>
   <nav>
-      <NuxLink to="/">
-          <img src="/assets/shared/desktop/logo-dark.png" class="logo-dark" />
-      </NuxLink>
-      <div class="menu-toggle" @click="toggleMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="menu" :class="{ 'active': isMenuOpen }">
-        <li>
-          <NuxLink to="/">Our Company</NuxLink>
-        </li>
-        <li>
-          <NuxLink to="/about">Locations</NuxLink>
-        </li>
-        <li>
-          <NuxLink to="/contact">Contact</NuxLink>
-        </li>
-      </ul>
+    <NuxtLink to="/">
+      <img src="/assets/shared/desktop/logo-dark.png" class="logo-dark" />
+    </NuxtLink>
+    <div class="menu-toggle" @click="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="menu" :class="{ 'active': isMenuOpen }">
+      <li>
+        <NuxtLink to="/about">Our Company</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/locations">Locations</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/contact">Contact</NuxtLink>
+      </li>
+    </ul>
   </nav>
 </template>
 
 <style scoped>
-nav{
- display: flex;
+nav {
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  background-color: var(--color-primary-white);
+  padding: 1rem;
 }
 
-.logo-dark{
-width:202px;
+.logo-dark {
+  width: 202px;
 }
+
+.menu li {
+  list-style: none;
+}
+
 .menu-toggle {
-  display: none;
-  cursor: pointer;
+  display: block;
 }
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  background-color: var(--color-primary-black);
+  color: var(--color-primary-white);
+}
+
+.menu.active {
+  display: flex;
+  flex-direction: column;
+}
+
 
 .menu-toggle span {
   display: block;
@@ -53,42 +80,30 @@ width:202px;
   background-color: #333;
 }
 
-.menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+@media screen and (min-width: 768px) {
 
-.menu li {
-  margin-left: 20px;
-}
-@media screen and (max-width: 768px) {
-  .menu {
+  .menu-toggle {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
 
-  .menu.active {
+  .menu {
+    position: static;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin: 0;
+    box-shadow: none;
+    padding: 0;
+    background-color: transparent;
+    color: var(--color-primary-black);
   }
 
   .menu li {
-    margin: 10px 0;
+    margin-left: 20px;
   }
 
-  .menu-toggle {
-    display: block;
-  }
+
 }
 </style>
 
