@@ -1,6 +1,9 @@
 
 <script setup lang="ts">
  //use vue-use to toggle menu-toggle
+import { useToggle } from '@vueuse/core'
+
+const [isMenuOpen, toggleMenu] = useToggle()
 
 </script>
 <template>
