@@ -1,5 +1,5 @@
 <template>
-  <div>
-   hello 
-  </div>
+  <main>
+    <LandingHero />
+  </main>
 </template>

@@ -18,13 +18,13 @@ const [isMenuOpen = false, toggleMenu] = useToggle()
     </div>
     <ul class="menu" :class="{ 'active': isMenuOpen }">
       <li>
-        <NuxtLink to="/about">Our Company</NuxtLink>
+        <NuxtLink class="a-nav" to="/about">Our Company</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/locations">Locations</NuxtLink>
+        <NuxtLink class="a-nav" to="/locations">Locations</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/contact">Contact</NuxtLink>
+        <NuxtLink class="a-nav" to="/contact">Contact</NuxtLink>
       </li>
     </ul>
   </nav>
@@ -80,7 +80,11 @@ nav {
   background-color: #333;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: var(--screen-md)) {
+  nav {
+    max-width: var(--max-width);
+    margin: auto;
+  }
 
   .menu-toggle {
     display: none;
@@ -91,7 +95,6 @@ nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
     margin: 0;
     box-shadow: none;
     padding: 0;
@@ -102,8 +105,6 @@ nav {
   .menu li {
     margin-left: 20px;
   }
-
-
 }
 </style>
 

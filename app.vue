@@ -14,6 +14,8 @@
 	--color-secondary-peach: hsla(11, 100%, 80.4%, 1);
 	--color-secondary-dark-grey: hsla(264, 4.9%, 20.2%, 1);
 	--color-secondary-light-grey: hsla(210, 16.7%, 95.3%, 0.858);
+	--max-width: 1112px;
+	--screen-md: 768px;
 }
 
 * {
@@ -44,26 +46,96 @@ a {
 	color: inherit;
 }
 
-h1 {
-	font-size: 48px;
+
+.h1 {
+	font-family: Jost;
+	font-size: 2rem;
+	/* 32px */
 	font-weight: 500;
-	line-height: 48px;
+	line-height: 36px;
 }
 
-h2 {
-	font-size: 40px;
-	font-family: "Jost";
+.h2 {
+	font-family: Jost;
+	font-size: 1.75rem;
+	/* 28px */
 	font-weight: 500;
-	line-height: 48px;
-	letter-spacing: 2px;
+	line-height: 36px;
+	letter-spacing: 1.4px;
 }
 
-h3 {
-	font-size: 20px;
-	font-family: "Jost";
+.h3 {
+	font-family: Jost;
+	font-size: 1.25rem;
+	/* 20px */
 	font-weight: 500;
 	line-height: 26px;
 	letter-spacing: 5px;
+}
+
+
+.a-nav {
+	font-family: Jost;
+	font-size: 0.875rem;
+	/* 14px */
+	font-weight: 400;
+	line-height: 14px;
+	letter-spacing: 2px;
+}
+
+.a-view-btn {
+	font-family: Jost;
+	font-size: 0.9375rem;
+	/* 15px */
+	font-weight: 500;
 	text-transform: uppercase;
+	letter-spacing: 5px;
+}
+
+.a-cta-btn {
+	font-family: Jost;
+	font-size: 0.9375rem;
+	/* 15px */
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+@media screen and (min-width: var(--screen-md)) {
+	.h1 {
+		font-family: Jost;
+		font-size: 3rem;
+		/* 48px */
+		font-weight: 500;
+		line-height: 48px;
+		padding-bottom: 1rem;
+	}
+
+	.h2 {
+		font-family: Jost;
+		font-size: 2.5rem;
+		/* 40px */
+		font-weight: 500;
+		line-height: 48px;
+		letter-spacing: 2px;
+	}
+
+	.h3 {
+		font-family: Jost;
+		font-size: 1.25rem;
+		/* 20px */
+		font-weight: 500;
+		text-transform: uppercase;
+		line-height: 26px;
+		letter-spacing: 5px;
+	}
+
+	.body {
+		font-family: Jost;
+		font-size: 1rem;
+		/* 16px */
+		font-weight: 400;
+		line-height: 26px;
+	}
 }
 </style>
