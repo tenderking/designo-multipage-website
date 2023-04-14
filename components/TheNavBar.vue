@@ -80,7 +80,7 @@ nav {
   background-color: #333;
 }
 
-@media screen and (min-width: var(--screen-md)) {
+@media screen and (min-width: 768px) {
   nav {
     max-width: var(--max-width);
     margin: auto;

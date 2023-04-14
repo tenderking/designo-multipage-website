@@ -15,9 +15,18 @@
 			<ButtonBase class="primary-btn">Learn More</ButtonBase>
 		</div>
 
+
 		<img class="img-phone" src="/assets/home/desktop/image-hero-phone.png" alt="landing page image">
-
-
+		<svg class="bg-shape" width="640" height="639" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="a">
+					<stop stop-color="#5D0202" stop-opacity="0" offset="0%" />
+					<stop stop-color="#5D0202" stop-opacity=".498" offset="100%" />
+				</linearGradient>
+			</defs>
+			<circle fill="url(#a)" transform="matrix(0 -1 -1 0 640 640)" cx="320" cy="320" r="320" fill-rule="evenodd"
+				opacity=".309" />
+		</svg>
 	</div>
 </template>
 <style scoped>
@@ -28,16 +37,21 @@
 	justify-content: center;
 	align-items: center;
 	padding: 2rem;
-	/* position: relative; */
-	overflow-y: hidden;
-	height: 800px;
+	position: relative;
+	overflow: hidden;
+
+}
+
+.bg-shape {
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }
 
 .img-phone {
 	position: relative;
 	left: 0;
-	top: 0;
-	object-fit: contain;
+	margin: -10%;
 }
 
 .container {
@@ -62,7 +76,7 @@ button {
 	margin-inline: auto;
 }
 
-@media screen and (min-width: var(--screen-md)) {
+@media screen and (min-width: 768px) {
 	.wrapper {
 		flex-direction: row;
 		justify-content: space-between;
@@ -78,6 +92,11 @@ button {
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
+	}
+
+	.img-phone {
+
+		top: 40%;
 	}
 
 	.landing-text {

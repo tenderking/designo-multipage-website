@@ -53,6 +53,8 @@ a {
 	/* 32px */
 	font-weight: 500;
 	line-height: 36px;
+	padding-bottom: 1rem;
+	max-width: 20ch;
 }
 
 .h2 {
@@ -71,6 +73,10 @@ a {
 	font-weight: 500;
 	line-height: 26px;
 	letter-spacing: 5px;
+}
+
+.body {
+	max-width: 45ch;
 }
 
 
@@ -101,7 +107,7 @@ a {
 	letter-spacing: 1px;
 }
 
-@media screen and (min-width: var(--screen-md)) {
+@media screen and (min-width: 768px) {
 	.h1 {
 		font-family: Jost;
 		font-size: 3rem;
