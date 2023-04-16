@@ -17,6 +17,17 @@
         </template>
       </FeatureItem>
     </div>
+    <CtaSection>
+      <template #title>
+        Let's talk about your project
+      </template>
+      <template #body>
+        Ready to take it to the next level? Contact us today and find out how our expertise can help your business grow.
+      </template>
+      <template #button>
+        Get in touch
+      </template>
+    </CtaSection>
   </main>
 </template>
 <script setup lang="ts">
