@@ -17,7 +17,7 @@
 		<picture>
 			<source media="(min-width: 768px)" :srcset="imgUrl.desktop" />
 			<source media="(min-width: 1440px)" :srcset="imgUrl.tablet" />
-			<img :src="imgUrl.mobile" alt="project image" />
+			<img :src="imgUrl.mobile" :alt="title" />
 
 		</picture>
 
@@ -38,6 +38,10 @@ defineProps({
 	},
 	imgUrl: {
 		type: Object as PropType<ImgUrl>,
+		required: true,
+	},
+	title: {
+		type: String,
 		required: true,
 	},
 })
