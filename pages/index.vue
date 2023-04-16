@@ -17,7 +17,7 @@
         </template>
       </FeatureItem>
     </div>
-    <CtaSection>
+    <CtaSection class="cta-section">
       <template #title>
         Let's talk about your project
       </template>
@@ -29,6 +29,9 @@
       </template>
     </CtaSection>
   </main>
+  <footer>
+    <TheFooter />
+  </footer>
 </template>
 <script setup lang="ts">
 
@@ -101,12 +104,32 @@ const features = [
   }
 }
 
+footer {
+  background-color: var(--color-primary-black);
+  padding-top: 6rem;
+  margin-bottom: 0;
+}
+
+main {
+  position: relative;
+}
+
+.cta-section {
+  position: relative;
+  top: 8rem;
+  margin-top: -8rem;
+}
+
 /* desktop first card spans to rows  */
 @media screen and (min-width: 1024px) {
   .card-wrapper {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 2rem;
+  }
+
+  .cta-section {
+    margin-top: -12rem;
   }
 
   .card-wrapper>*:nth-child(1) {
