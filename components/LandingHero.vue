@@ -1,5 +1,5 @@
 <template>
-	<div class="wrapper">
+	<div class="hero-wrapper">
 
 		<div class="container">
 
@@ -30,7 +30,7 @@
 	</div>
 </template>
 <style scoped>
-.wrapper {
+.hero-wrapper {
 	background-color: var(--color-primary-peach);
 	display: flex;
 	flex-direction: column;
@@ -77,7 +77,7 @@ button {
 }
 
 @media screen and (min-width: 768px) {
-	.wrapper {
+	.hero-wrapper {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;

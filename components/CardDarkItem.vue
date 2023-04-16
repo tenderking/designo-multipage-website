@@ -1,5 +1,5 @@
 <template>
-	<div class="wrapper">
+	<div class="card-container">
 		<h2 class="h2">
 			<slot />
 		</h2>
@@ -8,42 +8,52 @@
 				view project
 			</span>
 			<i>
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-					stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-					class="feather feather-arrow-right">
-					<line x1="5" y1="12" x2="19" y2="12"></line>
-					<polyline points="12 5 19 12 12 19"></polyline>
+				<svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1 1l4 4-4 4" stroke="#E7816B" stroke-width="2" fill="none" fill-rule="evenodd" />
 				</svg>
-
 			</i>
 		</NuxtLink>
+		<!-- use picture for different img sizes mobile, desktop, tablet -->
+		<picture>
+			<source media="(min-width: 768px)" :srcset="imgUrl.desktop" />
+			<source media="(min-width: 1440px)" :srcset="imgUrl.tablet" />
+			<img :src="imgUrl.mobile" alt="project image" />
 
-		<img :src="imgUrl" alt="">
+		</picture>
+
 	</div>
 </template>
 <script setup lang="ts">
+// create a type for props
+interface ImgUrl {
+	mobile: string;
+	tablet: string;
+	desktop: string;
+}
 
-const props = defineProps({
+defineProps({
 	destination: {
 		type: String,
 		required: true,
 	},
 	imgUrl: {
-		type: String,
+		type: Object as PropType<ImgUrl>,
 		required: true,
 	},
 })
 </script>
 
 <style scoped>
-.wrapper {
+.card-container {
 	/* background-color: var(--color-primary-white); */
 	display: flex;
 	text-align: center;
-	/* flex-direction: column; */
-	/* justify-content: center; */
-	/* align-items: center; */
-	/* padding: 2rem; */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	padding-block: 5.625rem;
+
 	overflow: hidden;
 	position: relative;
 
@@ -51,7 +61,18 @@ const props = defineProps({
 	border-radius: 15px;
 	color: var(--color-primary-white);
 	outline: solid;
-	height: 250px;
+	isolation: isolate;
+}
+
+.card-container:hover::after {
+	/* background transparent overlay */
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-color: var(--color-primary-peach);
+	opacity: 0.65;
+	z-index: -1;
+
 }
 
 
@@ -62,5 +83,20 @@ img {
 	left: 0;
 	width: 100%;
 	z-index: -1;
+	min-height: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+
+
+	.card-container {
+		padding-block: 3.375rem;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.card-container {
+		padding-block: 5.625rem;
+	}
 }
 </style>
