@@ -14,6 +14,8 @@
 	--color-secondary-peach: hsla(11, 100%, 80.4%, 1);
 	--color-secondary-dark-grey: hsla(264, 4.9%, 20.2%, 1);
 	--color-secondary-light-grey: hsla(210, 16.7%, 95.3%, 0.858);
+	--color-secondary-light-peach: hsla(14, 76%, 97%, 1);
+
 	--max-width: 1112px;
 	--screen-md: 768px;
 }
@@ -23,6 +25,9 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+
+
 
 #__nuxt {
 	font-size: 16px;
@@ -105,6 +110,40 @@ a {
 	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+}
+
+.card-wrapper {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-gap: 2rem;
+	padding: 2rem 1rem;
+}
+
+@media screen and (min-width: 768px) {
+	.card-wrapper {
+		max-width: var(--max-width);
+		width: calc(100% - 4rem);
+		margin: 2rem auto;
+		border-radius: 15px;
+
+		padding: 0;
+	}
+}
+
+
+
+
+
+
+
+/* desktop first card spans to rows  */
+@media screen and (min-width: 1024px) {
+	.card-wrapper {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-gap: 2rem;
+	}
+
 }
 
 @media screen and (min-width: 768px) {

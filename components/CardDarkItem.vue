@@ -1,9 +1,9 @@
 <template>
-	<div class="card-container">
+	<NuxtLink class="card-container" :to="destination">
 		<h2 class="h2">
 			<slot />
 		</h2>
-		<NuxtLink class="a-view-project" :to="destination">
+		<div class=" a-view-project">
 			<span class="">
 				view project
 			</span>
@@ -12,7 +12,7 @@
 					<path d="M1 1l4 4-4 4" stroke="#E7816B" stroke-width="2" fill="none" fill-rule="evenodd" />
 				</svg>
 			</i>
-		</NuxtLink>
+		</div>
 		<!-- use picture for different img sizes mobile, desktop, tablet -->
 		<picture>
 			<source media="(min-width: 768px)" :srcset="imgUrl.desktop" />
@@ -21,7 +21,7 @@
 
 		</picture>
 
-	</div>
+	</NuxtLink>
 </template>
 <script setup lang="ts">
 // create a type for props
@@ -58,14 +58,13 @@ defineProps({
 
 	padding-block: 5.625rem;
 
-	overflow: hidden;
 	position: relative;
 
 
 	border-radius: 15px;
 	color: var(--color-primary-white);
-	outline: solid;
 	isolation: isolate;
+	overflow: hidden;
 }
 
 .card-container:hover::after {
